@@ -1,0 +1,33 @@
+/* src/footerStyles.css */
+
+footer {
+    background-color: #fffafa;
+    padding: 20px 0;
+  }
+  
+  .up-arrow {
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .up-arrow:hover {
+    color: #003b7a;
+    text-decoration: none;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: #0056b3;
+    text-decoration: none;
+  }
+  
