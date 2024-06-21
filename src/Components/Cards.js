@@ -13,21 +13,21 @@ const Cards = () => {
           <div className="thumbnail">
             <img src={two} alt="Paris" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
-            <button className="btn btn-primary">Buy Product</button>
+            <button className="btn btn-danger">Buy Product</button>
           </div>
         </div>
         <div className="col-sm-4">
           <div className="thumbnail">
             <img src={two} alt="New York" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
-            <button className="btn btn-primary">Buy Product</button>
+            <button className="btn btn-danger">Buy Product</button>
           </div>
         </div>
         <div className="col-sm-4">
           <div className="thumbnail">
             <img src={two} alt="San Francisco" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
-            <button className="btn btn-primary">Buy Product</button>
+            <button className="btn btn-danger">Buy Product</button>
           </div>
         </div>
       </div>
@@ -36,21 +36,21 @@ const Cards = () => {
           <div className="thumbnail">
             <img src={two} alt="Paris" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
-            <button className="btn btn-primary">Buy Product</button>
+            <button className="btn btn-danger">Buy Product</button>
           </div>
         </div>
         <div className="col-sm-4">
           <div className="thumbnail">
             <img src={two} alt="New York" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
-            <button className="btn btn-primary">Buy Product</button>
+            <button className="btn btn-danger">Buy Product</button>
           </div>
         </div>
         <div className="col-sm-4">
           <div className="thumbnail">
             <img src={two} alt="San Francisco" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
-            <button className="btn btn-primary">Buy Product</button>
+            <button className="btn btn-danger">Buy Product</button>
           </div>
         </div>
       </div>
