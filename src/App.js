@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Signin from "./Pages/Signin";
 import Contact from "./Pages/Contact";
 import Login from './Pages/Login';
+import DeleteUser from './Pages/DeleteUser';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="signin" element={<Signin/>} />
             <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login/>} />
+            <Route path='deleteuser' element={<DeleteUser/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
