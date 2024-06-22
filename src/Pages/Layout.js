@@ -17,10 +17,10 @@ const Layout = () => {
             <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
                 <li><Link to="/">HomeOfProducts</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/Signin">Sign-in</Link></li>
-                <li><Link to="/Login">Log-in</Link></li>
-                <li><Link to="/DeleteUser">DeleteUser</Link></li>
+                <li><Link to="/Home/contact">Contact</Link></li>
+                <li><Link to="/Home/signin">Sign-in</Link></li>
+                <li><Link to="/Home/login">Log-in</Link></li>
+                <li><Link to="/Home/deleteUser">DeleteUser</Link></li>
             </ul>
             </div>
         </div>

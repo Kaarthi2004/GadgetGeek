@@ -1,40 +1,40 @@
-/* src/productList.css */
+/* src/card-style.css */
 
 .container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 10px;
-  }
-  
-  .thumbnail {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    background-color: #f9f9f9;
-    transition: box-shadow 0.5s ease-in-out;
-  }
-  
-  .thumbnail:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .btn-primary {
-    background-color: #ad0606;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: #bd2c2c;
-  }
-  
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.thumbnail {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.thumbnail:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 250px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the area proportionally */
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background-color: #ad0606;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #bd2c2c;
+}
