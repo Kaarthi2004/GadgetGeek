@@ -27,7 +27,7 @@ const Cards = () => {
         </div>
         <div className="col-sm-4">
           <div className="thumbnail">
-            <img src={four} alt="San Francisco" className="product-image"/>
+            <img src={two} alt="San Francisco" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
             <button className="btn btn-danger">Buy Product</button>
           </div>
@@ -36,21 +36,21 @@ const Cards = () => {
       <div className="row text-center">
         <div className="col-sm-4">
           <div className="thumbnail">
-            <img src={five} alt="Paris" className="product-image"/>
+            <img src={three} alt="Paris" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
             <button className="btn btn-danger">Buy Product</button>
           </div>
         </div>
         <div className="col-sm-4">
           <div className="thumbnail">
-            <img src={six} alt="New York" className="product-image"/>
+            <img src={two} alt="New York" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
             <button className="btn btn-danger">Buy Product</button>
           </div>
         </div>
         <div className="col-sm-4">
           <div className="thumbnail">
-            <img src={two} alt="San Francisco" className="product-image"/>
+            <img src={three} alt="San Francisco" className="product-image"/>
             <p><strong>REDDRAGON</strong></p>
             <button className="btn btn-danger">Buy Product</button>
           </div>

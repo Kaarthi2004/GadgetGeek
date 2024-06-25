@@ -15,23 +15,21 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.get('http://localhost:3001/users')
-      .then(response => {
-        const users = response.data;
-        const { username, password } = inputs;
-
-        const user = users.find(user => user.username === username && user.password === password);
-
-        if (user) {
-          setMessage('Login successful!');
-        } else {
-          setMessage('Invalid username or password');
-        }
-      })
-      .catch(error => {
-        console.error('There was an error fetching the user data!', error);
+    axios.post('http://localhost:3001/login', {
+      username: inputs.username,
+      password: inputs.password
+    })
+    .then(response => {
+      setMessage(response.data);
+    })
+    .catch(error => {
+      if (error.response && error.response.status === 401) {
+        setMessage('Invalid username or password');
+      } else {
+        console.error('There was an error connecting to the server!', error);
         setMessage('Error connecting to server');
-      });
+      }
+    });
   }
 
   return (

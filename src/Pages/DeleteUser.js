@@ -9,7 +9,7 @@ function DeleteUser() {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}))
+    setInputs(values => ({...values, [name]: value}));
   }
 
   const handleSubmit = (event) => {
@@ -20,8 +20,12 @@ function DeleteUser() {
         setMessage('User deleted successfully');
       })
       .catch(error => {
-        console.error('There was an error deleting the user!', error);
-        setMessage('Error deleting user');
+        if (error.response && error.response.status === 404) {
+          setMessage('User not found');
+        } else {
+          console.error('There was an error deleting the user!', error);
+          setMessage('Error deleting user');
+        }
       });
   }
 
@@ -49,7 +53,8 @@ function DeleteUser() {
       </form>
       {message && <p>{message}</p>}
     </div>
-  )
+  );
 }
 
 export default DeleteUser;
+  

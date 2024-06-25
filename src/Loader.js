@@ -44,7 +44,7 @@ export default function CircularWithValueLabel() {
         }
         return prevProgress + 10;
       });
-    }, 800);
+    }, 500);
     return () => {
       clearInterval(timer);
     };

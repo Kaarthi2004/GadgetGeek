@@ -1,77 +1,67 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
-const bodyParser = require('body-parser');
-const fs = require('fs');
+
 const app = express();
 const port = 3001;
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
-const dbFilePath = './db.json';
-
-app.get('/users', (req, res) => {
-  fs.readFile(dbFilePath, (err, data) => {
-    if (err) {
-      res.status(500).send('Error reading database file');
-      return;
-    }
-    res.json(JSON.parse(data).users);
-  });
+// Connect to MongoDB
+mongoose.connect('mongodb+srv://rangakaarthi:mongomaanavan@website.tngsj.mongodb.net/DB-1', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
-app.post('/users', (req, res) => {
-  const newUser = {
-    username: req.body.username,
-    password: req.body.password
-  };
-
-  fs.readFile(dbFilePath, (err, data) => {
-    if (err) {
-      res.status(500).send('Error reading database file');
-      return;
-    }
-    const db = JSON.parse(data);
-    db.users.push(newUser);
-
-    fs.writeFile(dbFilePath, JSON.stringify(db, null, 2), (err) => {
-      if (err) {
-        res.status(500).send('Error writing to database file');
-        return;
-      }
-      res.status(200).send('User added successfully');
-    });
-  });
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  password: { type: String, required: true }
 });
 
-app.delete('/users', (req, res) => {
-  const { username, password } = req.body;
+const User = mongoose.model('users', userSchema);
 
-  fs.readFile(dbFilePath, (err, data) => {
-    if (err) {
-      res.status(500).send('Error reading database file');
-      return;
+// Endpoint to add a new user
+app.post('/users', async (req, res) => {
+  try {
+    const newUser = new User(req.body);
+    await newUser.save();
+    res.status(201).send('User added successfully');
+  } catch (error) {
+    res.status(400).send('Error adding user');
+  }
+});
+
+// Endpoint to authenticate a user
+app.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username, password });
+    if (user) {
+      res.status(200).send('Login successful!');
+    } else {
+      res.status(401).send('Invalid username or password');
     }
-    let db = JSON.parse(data);
-    const userIndex = db.users.findIndex(user => user.username === username && user.password === password);
+  } catch (error) {
+    res.status(500).send('Error connecting to server');
+  }
+});
 
-    if (userIndex === -1) {
-      res.status(404).send('User not found');
-      return;
-    }
-
-    db.users.splice(userIndex, 1);
-
-    fs.writeFile(dbFilePath, JSON.stringify(db, null, 2), (err) => {
-      if (err) {
-        res.status(500).send('Error writing to database file');
-        return;
-      }
+// Endpoint to delete a user
+app.delete('/users', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOneAndDelete({ username, password });
+    if (user) {
       res.status(200).send('User deleted successfully');
-    });
-  });
+    } else {
+      res.status(404).send('User not found');
+    }
+  } catch (error) {
+    res.status(500).send('Error deleting user');
+  }
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });
